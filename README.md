@@ -1,2 +1,2 @@
-# Random-Python-Stuff
-Random projects I guess...
+# Random
+Miscellaneous Projects
