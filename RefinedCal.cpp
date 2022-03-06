@@ -90,6 +90,11 @@ int main()
         cin >> amount;
         keyCal(amount);
     }
+    else
+    {
+        cout << "Error: Not a valid type";
+    }
+    main();
     
     return 0;
 }
