@@ -94,7 +94,6 @@ int main()
     {
         cout << "Error: Not a valid type";
     }
-    main();
     
     return 0;
 }
