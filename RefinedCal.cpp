@@ -5,7 +5,11 @@ using namespace std;
 void refCal(float x)
 {
     float i = x/68.77;
+    int n = static_cast<int>(i);
     cout << "You have " + to_string(i) + " keys\n";
+    float y = i - n;
+    i = y*68.77;
+    cout << to_string(n) + " keys and " + to_string(i) + " refined\n";
 }
 
 void mainCal(float x, string y)
@@ -15,9 +19,8 @@ void mainCal(float x, string y)
     {
         if(i >= 68.77)
         {
-            cout << "You have " + to_string(i) + "refined";
-            i = i/68.77;
-            cout << " or " + to_string(i) + " keys\n";
+            cout << "You have " + to_string(i) + " refined\n";
+            refCal(i);
         }
         else
         {
@@ -28,13 +31,12 @@ void mainCal(float x, string y)
     {
         if(i >= 3)
         {
-            cout << "You have " + to_string(i) + "reclaimed";
+            cout << "You have " + to_string(i) + " reclaimed";
             i = i/3;
             if(i >= 68.77)
             {
-                cout << " or " + to_string(i) + " refined";
-                i = i/68.77;
-                cout << " or " + to_string(i) + " keys\n";
+                cout << " or " + to_string(i) + " refined\n";
+                refCal(i);
             }
             else
             {
@@ -50,7 +52,7 @@ void mainCal(float x, string y)
 
 void keyCal(float x)
 {
-    float i = 68.77/x;
+    float i = 68.77*x;
     cout << "You have " + to_string(i) + " refined";
     i = i*3;
     cout << " or " + to_string(i) + " reclaimed";
@@ -94,6 +96,6 @@ int main()
     {
         cout << "Error: Not a valid type";
     }
-    
+   
     return 0;
 }
