@@ -103,5 +103,5 @@ int main()
         cout << "Error: Not a valid type";
     }
    
-    return 0;
+    return EXIT_SUCCESS;
 }
