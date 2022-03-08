@@ -2,14 +2,20 @@
 #include <string>
 using namespace std;
 
+float round(float var)
+{
+    float value = (int)(var * 100 + .5);
+    return (float)value / 100;
+}
+
 void refCal(float x)
 {
     float i = x/68.77;
     int n = static_cast<int>(i);
-    cout << "You have " << i << " keys\n";
+    cout << "You have " << round(i) << " keys\n";
     float y = i - n;
     i = y*68.77;
-    cout << to_string(n) << " keys and " << i << " refined" << endl;
+    cout << n << " keys and " << round(i) << " refined" << endl;
 }
 
 void mainCal(float x, string y)
@@ -19,33 +25,33 @@ void mainCal(float x, string y)
     {
         if(i >= 68.77)
         {
-            cout << "You have " << i << " refined" << endl;
+            cout << "You have " << round(i) << " refined" << endl;
             refCal(i);
         }
         else
         {
-            cout << "You have " << to_string(i) << " refined" << endl;
+            cout << "You have " << round(i) << " refined";
         }
     }
     else if(y == "S"||y == "s")
     {
         if(i >= 3)
         {
-            cout << "You have " << to_string(i) << " reclaimed";
+            cout << "You have " << round(i) << " reclaimed";
             i = i/3;
             if(i >= 68.77)
             {
-                cout << " or " << to_string(i) << " refined" << endl;
+                cout << " or " << round(i) << " refined" << endl;
                 refCal(i);
             }
             else
             {
-                cout << " or " << to_string(i) << " refined" << endl;
+                cout << " or " << round(i) << " refined";
             }
         }
         else
         {
-            cout << "You have " << to_string(i) << " reclaimed" << endl;
+            cout << "You have " << round(i) << " reclaimed";
         }
     }
 }
@@ -53,11 +59,11 @@ void mainCal(float x, string y)
 void keyCal(float x)
 {
     float i = 68.77*x;
-    cout << "You have " << to_string(i) << " refined";
+    cout << "You have " << round(i) << " refined";
     i = i*3;
-    cout << " or " << to_string(i) << " reclaimed";
+    cout << " or " << round(i) << " reclaimed";
     i = i*3;
-    cout << " or " << to_string(i) << " scrap" << endl;
+    cout << " or " << round(i) << " scrap" << endl;
 }
 
 int main()
@@ -65,7 +71,7 @@ int main()
     string type = "";
     float amount = 0;
 
-    cout << "[R]efined, R[e]claimed, [S]crap or [K]ey ";
+    cout << "\n\n[R]efined, R[e]claimed, [S]crap or [K]ey ";
     cin >> type;
 
     if(type == "R"||type == "r")
@@ -94,7 +100,7 @@ int main()
     }
     else
     {
-        cout << "Error: Not a valid type" << endl;
+        cout << "Error: Not a valid type";
     }
    
     return 0;
