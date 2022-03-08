@@ -8,20 +8,20 @@ float round(float var)
     return (float)value / 100;
 }
 
-void refCal(float x)
+void refCal(float ref)
 {
-    float i = x/68.77;
+    float i = ref/68.77;
     int n = static_cast<int>(i);
     cout << "You have " << round(i) << " keys\n";
-    float y = i - n;
-    i = y*68.77;
+    float key = i - n;
+    i = 68.77*key;
     cout << n << " keys and " << round(i) << " refined" << endl;
 }
 
-void mainCal(float x, string y)
+void mainCal(float metal, string type)
 {
-    float i = x/3;
-    if(y == "E"||y == "e")
+    float i = metal/3;
+    if(type == "E"||type == "e")
     {
         if(i >= 68.77)
         {
@@ -33,7 +33,7 @@ void mainCal(float x, string y)
             cout << "You have " << round(i) << " refined";
         }
     }
-    else if(y == "S"||y == "s")
+    else if(type == "S"||type == "s")
     {
         if(i >= 3)
         {
@@ -56,9 +56,9 @@ void mainCal(float x, string y)
     }
 }
 
-void keyCal(float x)
+void keyCal(float key)
 {
-    float i = 68.77*x;
+    float i = 68.77*key;
     cout << "You have " << round(i) << " refined";
     i = i*3;
     cout << " or " << round(i) << " reclaimed";
@@ -71,7 +71,7 @@ int main()
     string type = "";
     float amount = 0;
 
-    cout << "\n\n[R]efined, R[e]claimed, [S]crap or [K]ey ";
+    cout << "\n\n[R]efined, R[e]claimed, [S]crap or [K]ey \n";
     cin >> type;
 
     if(type == "R"||type == "r")
