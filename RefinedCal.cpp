@@ -6,10 +6,10 @@ void refCal(float x)
 {
     float i = x/68.77;
     int n = static_cast<int>(i);
-    cout << "You have " + to_string(i) + " keys\n";
+    cout << "You have " << i << " keys\n";
     float y = i - n;
     i = y*68.77;
-    cout << to_string(n) + " keys and " + to_string(i) + " refined\n";
+    cout << to_string(n) << " keys and " << i << " refined" << endl;
 }
 
 void mainCal(float x, string y)
@@ -19,33 +19,33 @@ void mainCal(float x, string y)
     {
         if(i >= 68.77)
         {
-            cout << "You have " + to_string(i) + " refined\n";
+            cout << "You have " << i << " refined" << endl;
             refCal(i);
         }
         else
         {
-            cout << "You have " + to_string(i) + " refined\n";
+            cout << "You have " << to_string(i) << " refined" << endl;
         }
     }
     else if(y == "S"||y == "s")
     {
         if(i >= 3)
         {
-            cout << "You have " + to_string(i) + " reclaimed";
+            cout << "You have " << to_string(i) << " reclaimed";
             i = i/3;
             if(i >= 68.77)
             {
-                cout << " or " + to_string(i) + " refined\n";
+                cout << " or " << to_string(i) << " refined" << endl;
                 refCal(i);
             }
             else
             {
-                cout << " or " + to_string(i) + " refined\n";
+                cout << " or " << to_string(i) << " refined" << endl;
             }
         }
         else
         {
-            cout << "You have " + to_string(i) + " reclaimed\n";
+            cout << "You have " << to_string(i) << " reclaimed" << endl;
         }
     }
 }
@@ -53,11 +53,11 @@ void mainCal(float x, string y)
 void keyCal(float x)
 {
     float i = 68.77*x;
-    cout << "You have " + to_string(i) + " refined";
+    cout << "You have " << to_string(i) << " refined";
     i = i*3;
-    cout << " or " + to_string(i) + " reclaimed";
+    cout << " or " << to_string(i) << " reclaimed";
     i = i*3;
-    cout << " or " + to_string(i) + " scrap\n";
+    cout << " or " << to_string(i) << " scrap" << endl;
 }
 
 int main()
@@ -94,7 +94,7 @@ int main()
     }
     else
     {
-        cout << "Error: Not a valid type";
+        cout << "Error: Not a valid type" << endl;
     }
    
     return 0;
