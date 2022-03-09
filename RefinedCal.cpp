@@ -26,7 +26,7 @@ void mainCal(float metal, string type, float curRef)
         if(i >= curRef)
         {
             cout << "You have " << round(i) << " refined" << endl;
-            refCal(i);
+            refCal(i, curRef);
         }
         else
         {
@@ -42,7 +42,7 @@ void mainCal(float metal, string type, float curRef)
             if(i >= curRef)
             {
                 cout << " or " << round(i) << " refined" << endl;
-                refCal(i);
+                refCal(i, curRef);
             }
             else
             {
