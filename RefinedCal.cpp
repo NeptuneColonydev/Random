@@ -8,17 +8,17 @@ float round(float var)
     return (float)value / 100;
 }
 
-void refCal(float ref, float curRef)
+void refCal(float ref, float curRef, float curKey)
 {
     float i = ref/curRef;
+    float prce = i * curKey;
     int n = static_cast<int>(i);
-    cout << "You have " << round(i) << " keys\n";
     float key = i - n;
-    i = curRef*key;
-    cout << n << " keys and " << round(i) << " refined" << endl;
+    float f = curRef*key;
+    cout << "You have " << round(i) << " keys\n" << n << " keys and " << round(f) << " refined\n" << "Price: " << round(prce) << endl;
 }
 
-void mainCal(float metal, string type, float curRef)
+void mainCal(float metal, string type, float curRef, float curKey)
 {
     float i = metal/3;
     if(type == "E"||type == "e")
@@ -26,7 +26,7 @@ void mainCal(float metal, string type, float curRef)
         if(i >= curRef)
         {
             cout << "You have " << round(i) << " refined" << endl;
-            refCal(i, curRef);
+            refCal(i, curRef, curKey);
         }
         else
         {
@@ -42,7 +42,7 @@ void mainCal(float metal, string type, float curRef)
             if(i >= curRef)
             {
                 cout << " or " << round(i) << " refined" << endl;
-                refCal(i, curRef);
+                refCal(i, curRef, curKey);
             }
             else
             {
@@ -59,8 +59,7 @@ void mainCal(float metal, string type, float curRef)
 void keyCal(float key, float curRef, float curKey)
 {
     float i = curRef*key;
-    float prce = i * curKey;
-    cout << "You have " << round(i) << " refined.\nPrice: " << round(prce);
+    cout << "You have " << round(i) << " refined.";
     i = i*3;
     cout << " or " << round(i) << " reclaimed";
     i = i*3;
@@ -85,19 +84,19 @@ int main()
     {
         cout << "How much refined metal do you want to convert? ";
         cin >> amount;
-        refCal(amount, curRef);
+        refCal(amount, curRef, curKey);
     }
     else if (type == "E"||type == "e")
     {
         cout << "How much reclaimed metal do you want to convert? ";
         cin >> amount;
-        mainCal(amount, type, curRef);
+        mainCal(amount, type, curRef, curKey);
     }
     else if (type == "S"||type == "s")
     {
         cout << "How much scrap metal do you want to convert? ";
         cin >> amount;
-        mainCal(amount, type, curRef);
+        mainCal(amount, type, curRef, curKey);
     }
     else if (type == "K"||type == "k")
     {
